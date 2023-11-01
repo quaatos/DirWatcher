@@ -7,8 +7,8 @@ int filecount = 0;
 
 int main(void) {
     for(;;) {
-        filecount = CountMembers("/home/wizard/Desktop");
-        if (filecount > prevFilecount) system("curl -d \"File added!\" ntfy.sh/intruder");
+        filecount = CountMembers("Path/To/Directory");
+        if (filecount > prevFilecount) system("curl -d \"File added!\" ntfy.sh/subject"); //Send notification to phone using the ntfy.sh app
 
         prevFilecount = filecount;
         filecount = 0;
@@ -36,6 +36,7 @@ int CountMembers(char *path) {
         {
             filecount++;
         }
+        //if you want to check for new directory's instead of files. Change "DT_REG" to "DT_DIR"
     }
 
     return filecount;
